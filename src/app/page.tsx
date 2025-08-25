@@ -1,12 +1,10 @@
-import React from "react";
-import { Hero } from "./pages/Hero";
-import TakeOff from "./pages/TakeOff";
+import React from 'react'
+import { Hero } from './pages/Hero'
 
-export default function App() {
+export default function page() {
   return (
     <div>
-      <Hero />
-      {/* <TakeOff/> */}
+      <Hero/>
     </div>
-  );
+  )
 }

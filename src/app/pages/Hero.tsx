@@ -54,11 +54,6 @@ export const Hero = () => {
 
   return (
     <section className="w-full h-screen flex flex-col items-center justify-center relative text-white bg-gradient-to-tr from-[#ca1637] to-[#780c2d] overflow-hidden font-[Rustea] text-center">
-      {/* Header */}
-      <header className="relative z-[1000] top-32">
-        <Header />
-      </header>
-
       {/* Main Content */}
       <main className="relative w-full text-center">
         {/* Planet Background */}
@@ -157,7 +152,9 @@ export const Hero = () => {
         <div className="absolute top-[66%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-[4000] w-full text-lg font-bold text-center paragraph">
           <div className="paragraph-text">
             <h2 className="mb-4 text-2xl mt-4">ARE YOU OVER 21 YEARS OLD?</h2>
-            <Button> HELL YEAH!</Button>
+            <Link href="/products">
+              <Button> HELL YEAH!</Button>
+            </Link>
             <Button> NO, I WISH</Button>
           </div>
         </div>
