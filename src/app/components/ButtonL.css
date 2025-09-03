@@ -1,0 +1,21 @@
+.btnr {
+  position: relative;
+  width: 150px;
+  height: 45px;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
+  background-color: rgba(49, 14, 0, 0.2);
+  border: 1px solid var(--border-color, #df4f2b);
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnr.topr {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 85% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 85% 100%, 0 100%);
+}

@@ -1,113 +1,120 @@
-/* avc */
 .fookin-a-box {
   position: relative;
   width: 350px;
+  font-family: "Rustea", sans-serif;
+  color: white;
   overflow: hidden;
 }
 
-/* Accent vertical line */
-.heading-clip-mirrored::before {
-  content: "";
+.mb {
   position: absolute;
-  top: 0;
-  right: 144px;
-  width: 1px;
-  height: 30px;
+  inset: 0;
+  z-index: 1;
   background-color: #a7db8d;
-}
-
-/* Global reset for pseudo elements */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Main heading style */
-.heading-clip-mirrored {
-  position: relative;
-  -webkit-backdrop-filter: blur(22px);
-  backdrop-filter: blur(22px);
-  line-height: 1;
+  opacity: 0.2;
   -webkit-clip-path: polygon(
-    calc(100% - 144px) 0,
+    calc(100% - 0px) 30px,
+    calc(100% - 0px) calc(100% - 61px),
+    calc(100% - 53px) calc(100% - 0px),
+    0px calc(100% - 0px),
+    0px 62px,
+    calc(100% - 175px) 62px,
     calc(100% - 144px) 30px,
-    calc(100% - 176px) 100%,
-    0% 100%,
-    0% 0%
+    calc(100% - 0px) 30px,
+    calc(100% - 144px) 31px,
+    calc(100% - 175px) 63px,
+    1px 63px,
+    1px calc(100% - 1px),
+    calc(100% - 53px) calc(100% - 1px),
+    calc(100% - 1px) calc(100% - 61px),
+    calc(100% - 1px) 31px,
+    calc(100% - 144px) 31px
   );
   clip-path: polygon(
-    calc(100% - 144px) 0,
+    calc(100% - 0px) 30px,
+    calc(100% - 0px) calc(100% - 61px),
+    calc(100% - 53px) calc(100% - 0px),
+    0px calc(100% - 0px),
+    0px 62px,
+    calc(100% - 175px) 62px,
     calc(100% - 144px) 30px,
-    calc(100% - 176px) 100%,
-    0% 100%,
-    0% 0%
+    calc(100% - 0px) 30px,
+    calc(100% - 144px) 31px,
+    calc(100% - 175px) 63px,
+    1px 63px,
+    1px calc(100% - 1px),
+    calc(100% - 53px) calc(100% - 1px),
+    calc(100% - 1px) calc(100% - 61px),
+    calc(100% - 1px) 31px,
+    calc(100% - 144px) 31px
   );
+}
+
+.innerPolygon {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-color: #110d06;
+  -webkit-clip-path: polygon(
+    calc(100% - 10px) 40px,
+    calc(100% - 10px) calc(100% - 65px),
+    calc(100% - 57px) calc(100% - 10px),
+    10px calc(100% - 10px),
+    10px 72px,
+    calc(100% - 171px) 72px,
+    calc(100% - 139px) 40px
+  );
+  clip-path: polygon(
+    calc(100% - 10px) 40px,
+    calc(100% - 10px) calc(100% - 65px),
+    calc(100% - 57px) calc(100% - 10px),
+    10px calc(100% - 10px),
+    10px 72px,
+    calc(100% - 171px) 72px,
+    calc(100% - 139px) 40px
+  );
+}
+
+.heading-clip-mirrored {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 62px;
+  width: 350px;
+  background-color: #110d06;
   border-left: 1px solid #a7db8d;
   border-top: 1px solid #a7db8d;
   border-right: 1px solid #a7db8d;
-  background-color: #727272;
-  height: 62px;
-  width: 350px;
-}
-
-/* background clipped border */
-.mb {
-  position: absolute;
-  opacity: 1;
-  inset: 0;
-  z-index: -12;
-  max-width: 100%;
-  background-color: #a7db8d;
   -webkit-clip-path: polygon(
-    calc(100% - 0px) 30px,
-    calc(100% - 0px) calc(100% - 61px),
-    calc(100% - 53px) calc(100% - 0px),
-    0px calc(100% - 0px),
-    0px 62px,
-    calc(100% - 175px) 62px,
+    calc(100% - 144px) 0,
     calc(100% - 144px) 30px,
-    calc(100% - 0px) 30px,
-    calc(100% - 144px) 31px,
-    calc(100% - 175px) 63px,
-    1px 63px,
-    1px calc(100% - 1px),
-    calc(100% - 53px) calc(100% - 1px),
-    calc(100% - 1px) calc(100% - 61px),
-    calc(100% - 1px) 31px,
-    calc(100% - 144px) 31px
+    calc(100% - 176px) 100%,
+    0% 100%,
+    0% 0%
   );
   clip-path: polygon(
-    calc(100% - 0px) 30px,
-    calc(100% - 0px) calc(100% - 61px),
-    calc(100% - 53px) calc(100% - 0px),
-    0px calc(100% - 0px),
-    0px 62px,
-    calc(100% - 175px) 62px,
+    calc(100% - 144px) 0,
     calc(100% - 144px) 30px,
-    calc(100% - 0px) 30px,
-    calc(100% - 144px) 31px,
-    calc(100% - 175px) 63px,
-    1px 63px,
-    1px calc(100% - 1px),
-    calc(100% - 53px) calc(100% - 1px),
-    calc(100% - 1px) calc(100% - 61px),
-    calc(100% - 1px) 31px,
-    calc(100% - 144px) 31px
+    calc(100% - 176px) 100%,
+    0% 100%,
+    0% 0%
   );
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  z-index: 3;
 }
 
-/* blurred gradient clipped body */
 .clip-shape-mirrored {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  user-select: text;
-  isolation: isolate;
   position: relative;
-  padding: 6rem 2rem;
-  margin-top: -60px;
+  padding: 80px 24px 24px;
+  height: 350px;
   width: 350px;
-  z-index: 1;
+  z-index: 4;
   -webkit-clip-path: polygon(
     calc(100% - 10px) 40px,
     calc(100% - 10px) calc(100% - 65px),

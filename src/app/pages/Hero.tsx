@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect } from "react";
 import { gsap } from "gsap";
-import Button from "../components/Button";
-import { Header } from "../components/Header";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
+import ButtonL from "../components/ButtonL";
+import ButtonR from "../components/ButtonR";
 
 export const Hero = () => {
   useEffect(() => {
@@ -152,18 +152,11 @@ export const Hero = () => {
         <div className="absolute top-[66%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-[4000] w-full text-lg font-bold text-center paragraph">
           <div className="paragraph-text ">
             <h2 className="mb-4 text-2xl mt-4">ARE YOU OVER 21 YEARS OLD?</h2>
-            <div className="flex items-center justify-center w-full ">
-              <div className="heading-clip-mirrored flex items-center justify-start pl-8 cursor-pointer  font-[Rustea] uppercase text-sm tracking-wider px-6 py-4">
-                <Link href="/">
-                  <button>HELL YEAH!</button>
-                </Link>
-              </div>
-
-              <div className="relative font-[Rustea] cursor-pointer uppercase text-sm tracking-wider">
-                <Link href="/" className="cardRTop">
-                  <button className="btn top ">NO, I WISH</button>
-                </Link>
-              </div>
+            <div className="flex items-center justify-center gap-4  w-full ">
+              <Link href="/products">
+                <ButtonL>HELL YEAH!</ButtonL>
+              </Link>
+              <ButtonR>NO, I WISH</ButtonR>
             </div>
           </div>
         </div>

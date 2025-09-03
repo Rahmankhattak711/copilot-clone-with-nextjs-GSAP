@@ -5,23 +5,36 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CardR from "../components/CardR";
 import CardL from "../components/CardL";
+import Heading from "../components/Heading";
 
 export default function HighPointScreen() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to(".astro", {
+      y: -1200,
+      ease: "power2.inOut",
+      scrollTrigger: {
+        trigger: ".astro",
+        start: "top 10%",
+        end: "bottom 10%",
+        scrub: 100,
+        markers: true,
+      },
+    });
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "section",
         start: "top top",
         end: "bottom top",
-        scrub: 1.5,
+        scrub: 1,
       },
     });
 
     tl.to(".textAni", { y: -80, opacity: 1 }, 0);
     tl.to(".box img", { y: -150 }, 0.2);
-    tl.to(".astro img", { y: -5000, rotate: -360 }, 0.5);
+    // tl.to(".astro img", { y: -5000, rotate: -360 }, 0.5);
 
     ["cloudOne", "cloudTwo", "cloudThree", "cloudFour"].forEach((cloud) => {
       gsap.to(`.${cloud} img`, {
@@ -60,19 +73,17 @@ export default function HighPointScreen() {
       }
     );
 
-    gsap.utils.toArray([".cardOne", ".cardTwo"]).forEach((card: any, i) => {
-      gsap.to(card, {
-        y: 0,
-        opacity: 1,
-        duration: 1.2,
-        delay: i * 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: card,
-          start: "top 90%",
-          toggleActions: "play none none reverse",
-        },
-      });
+    gsap.to(".cardOne, .cardTwo", {
+      y: -1000,
+      duration: 1.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".cardOne, .cardTwo",
+        start: "top 10%",
+        end: "bottom 10%",
+        scrub: 2,
+        markers: true,
+      },
     });
 
     const boxElement = document.querySelector(".box img");
@@ -154,25 +165,20 @@ export default function HighPointScreen() {
         </div>
 
         <div className="textAni w-[70%] flex items-center justify-center flex-col absolute top-44 z-7">
-          <div className="w-[90%] -mb-8 flex justify-between text-white">
-            <h2 className="font-bold text-2xl font-[Rustea]">18THC</h2>
-            <h2 className="font-bold text-2xl font-[Rustea]">5g</h2>
-          </div>
-
-          <h1 className="text-[9rem] text-[#A7DB8D] font-bold uppercase whitespace-nowrap font-[Rustea]">
-            HIGH POINT
-          </h1>
-
+          <Heading
+            title="High Point"
+            textColor="text-[#A7DB8D]"
+            percengate="18THC"
+            distance="5g"
+          />
           <div className="scrollPara relative max-w-2xl overflow-hidden mb-16">
-            <p className="font-[Rustea] text-3xl relative">
-              <span className="text-[#A7DB8D]">High Point</span> is a hybrid
-              cannabis product <br /> that combines the benefits of <br /> both
-              THC and CBD.
+            <p className="font-[Rustea] text-5xl uppercase relative">
+              ride the wave of <br /> euphoria
             </p>
           </div>
 
-          <div className="cardWrapper flex flex-col md:flex-row gap-72 mt-16 w-full">
-            <div className="cardOne rounded-md flex-1 h-[300px] text-left ">
+          <div className="cardWrapper flex items-center justify-center flex-col md:flex-row gap-72 mt-16 w-full">
+            <div className="cardOne rounded-md flex-1 opacity-90 h-[420px] text-left ">
               <CardR
                 title="High Point"
                 paragraphs={[
@@ -182,7 +188,7 @@ export default function HighPointScreen() {
               />
             </div>
 
-            <div className="cardTwo rounded-md flex-1 mt-44 text-left ">
+            <div className="cardTwo rounded-md flex-1 mt-44 opacity-90 h-[420px] text-left  ">
               <CardL
                 heading="Specification"
                 specs={[

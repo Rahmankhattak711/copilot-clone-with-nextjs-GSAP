@@ -1,38 +1,18 @@
-.mainH{
+.mainH {
   position: relative;
   width: 50%;
   margin: 0 auto;
-  z-index: 2
+  z-index: 2;
+  overflow: hidden;
 }
+
 .mainH::before {
   content: "";
-  background-color: var(--clip-border-color, #a7db8d);
-  transition: background-color 0.4s ease-in-out;
   position: absolute;
   inset: 0;
   height: 80px;
-  /* width: 50%; */
-  z-index: 1;
-  -webkit-clip-path: polygon(
-    8px 15px,
-    8px calc(100% - 8px),
-    calc(100% - 46px) calc(100% - 8px),
-    calc(100% - 8px) calc(100% - 30px),
-    calc(100% - 8px) 18px,
-    calc(100% - 19px) 8px,
-    113px 8px,
-    104px 15px,
-    8px 15px,
-    105px 16px,
-    114px 9px,
-    calc(100% - 20px) 9px,
-    calc(100% - 9px) 19px,
-    calc(100% - 9px) calc(100% - 31px),
-    calc(100% - 47px) calc(100% - 9px),
-    9px calc(100% - 9px),
-    9px 16px,
-    106px 16px
-  );
+  background-color: rgba(167, 219, 141, 0.2);
+  z-index: 0;
   clip-path: polygon(
     8px 15px,
     8px calc(100% - 8px),
@@ -42,50 +22,18 @@
     calc(100% - 19px) 8px,
     113px 8px,
     104px 15px,
-    8px 15px,
-    105px 16px,
-    114px 9px,
-    calc(100% - 20px) 9px,
-    calc(100% - 9px) 19px,
-    calc(100% - 9px) calc(100% - 31px),
-    calc(100% - 47px) calc(100% - 9px),
-    9px calc(100% - 9px),
-    9px 16px,
-    106px 16px
+    8px 15px
   );
 }
 
 .mainH::after {
   content: "";
-  background-color: var(--clip-border-color, #a7db8d);
-  transition: background-color 0.4s ease-in-out;
   position: absolute;
-  /* width: 50%; */
-  z-index: 1;
   inset: 0;
   height: 80px;
-  -webkit-clip-path: polygon(
-    0px 8px,
-    0px calc(100% - 0px),
-    calc(100% - 42px) calc(100% - 0px),
-    calc(100% - 0px) calc(100% - 25px),
-    calc(100% - 0px) 14px,
-    calc(100% - 18px) 0px,
-    112px 0px,
-    102px 8px,
-    10px 8px,
-    0px 8px,
-    11px 9px,
-    103px 9px,
-    113px 1px,
-    calc(100% - 19px) 1px,
-    calc(100% - 1px) 15px,
-    calc(100% - 1px) calc(100% - 26px),
-    calc(100% - 43px) calc(100% - 1px),
-    1px calc(100% - 1px),
-    1px 9px,
-    11px 9px
-  );
+  background: rgba(167, 219, 141, 0.7);
+  border: 2px solid rgba(167, 219, 141, 0.7);
+  z-index: 1;
   clip-path: polygon(
     0px 8px,
     0px calc(100% - 0px),
@@ -108,4 +56,9 @@
     1px 9px,
     11px 9px
   );
+}
+
+.mainH > * {
+  position: relative;
+  z-index: 2;
 }

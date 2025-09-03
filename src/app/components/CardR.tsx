@@ -10,14 +10,13 @@ type CardRProps = {
 export default function CardR({ title, paragraphs }: CardRProps) {
   return (
     <div className="cardR">
-      {/* Body */}
       <div className="cardRBody"></div>
 
-      {/* Header */}
-      <div className="cardRTop ">{title}</div>
+      <div className="cardRInner"></div>
 
-      {/* Text Content */}
-      <div className="cardRContent ">
+      <div className="cardRTop">{title}</div>
+
+      <div className="cardRContent">
         {paragraphs.map((text, idx) => (
           <p key={idx}>{text}</p>
         ))}

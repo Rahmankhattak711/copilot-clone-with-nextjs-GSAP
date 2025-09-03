@@ -1,12 +1,13 @@
 "use client";
+import "@/app/globals.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import "@/app/globals.css";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
-import CardR from "../components/CardR";
 import CardL from "../components/CardL";
+import CardR from "../components/CardR";
+import { animateCards, animateFloor, handleMouseMove } from "../utils/animate";
+import Heading from "../components/Heading";
 
 export function TakeOffPurpleScreen() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -15,17 +16,19 @@ export function TakeOffPurpleScreen() {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      gsap.to(".astro--container", {
-        y: -10000,
-        rotate: 360,
-        ease: "power2.inOut",
-        scrollTrigger: {
-          trigger: rootRef.current,
-          start: "top 40%",
-          end: "bottom top",
-          scrub: 2,
-        },
-      });
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".astro--container",
+            start: "top 10%",
+            end: "bottom 90%",
+            scrub: 2,
+          },
+        })
+        .to(".astro--container", {
+          y: -400,
+          rotate: 60,
+        });
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -73,25 +76,28 @@ export function TakeOffPurpleScreen() {
             trigger: ".scrollPara",
             start: "top 85%",
             end: "bottom 60%",
-            scrub: 1.2,
+            scrub: 2,
           },
         }
       );
 
-      gsap.utils.toArray([".cardOne", ".cardTwo"]).forEach((card: any, i) => {
-        gsap.to(card, {
-          y: 0,
-          opacity: 90,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: card,
-            end: "bottom 60%",
-            scrub: 1.2,
-            start: "top 90%",
-          },
-        });
-      });
+      // gsap.to(
+      //   ".scrollPara p"(
+      //   {
+      //     y: "0%",
+      //     opacity: 1,
+      //     ease: "power3.out",
+      //     scrollTrigger: {
+      //       trigger: ".scrollPara",
+      //       start: "top 10%",
+      //       end: "bottom 60%",
+      //       scrub:40,
+      //       markers: true,
+      //     },
+      //   })
+      // );
+
+      animateCards();
 
       const boxEnter = () =>
         gsap.to(".box img", { scale: 1.08, duration: 0.6, ease: "power2.out" });
@@ -102,29 +108,9 @@ export function TakeOffPurpleScreen() {
       boxElement?.addEventListener("mouseenter", boxEnter);
       boxElement?.addEventListener("mouseleave", boxLeave);
 
-      const handleMouseMove = (e: MouseEvent) => {
-        const x = (e.clientX - window.innerWidth / 2) * 0.02;
-        const y = (e.clientY - window.innerHeight / 2) * 0.02;
-        gsap.to(".cloudOne img, .cloudTwo img", {
-          x,
-          y,
-          duration: 1.5,
-          ease: "sine.out",
-        });
-      };
       document.addEventListener("mousemove", handleMouseMove);
 
-      gsap.to(".floor-img", {
-        x: "-30%",
-        scale: 1.2,
-        ease: "none",
-        scrollTrigger: {
-          trigger: rootRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
+      animateFloor();
 
       return () => {
         document.removeEventListener("mousemove", handleMouseMove);
@@ -150,20 +136,14 @@ export function TakeOffPurpleScreen() {
         </div>
 
         <div className="textAni w-[70%] flex items-center justify-center flex-col absolute top-44 z-7">
-          <div className="w-full -mb-8 flex justify-between text-white">
-            <h2 className="font-bold text-2xl font-[Rustea]">25% THC</h2>
-            <h2 className="font-bold text-2xl font-[Rustea]">5g</h2>
-          </div>
-          <h1 className="text-[9rem] text-[#83EFFF] font-bold uppercase whitespace-nowrap font-[Rustea]">
-            TOUCH DOWN
-          </h1>
+          <Heading title="TOUCH DOWN" percengate="25%" distance="5g" />
           <div className="scrollPara relative mt-20 max-w-2xl overflow-hidden mb-16">
-            <p className="font-[Rustea] text-3xl relative">
+            <p className="font-[Rustea] text-5xl relative">
               A COSMIC CALM IN <br /> EVERY WAY
             </p>
           </div>
-          <div className="cardWrapper flex flex-col md:flex-row gap-10 mt-16 w-full">
-            <div className="cardOne rounded-md flex-1 opacity-0 h-[420px] text-left backdrop-blur-lg px-4 py-8">
+          <div className="cardWrapper flex items-center justify-center gap-56 ">
+            <div className="cardOne rounded-md px-4 flex-1 h-[380px] text-left backdrop-blur-lg ">
               <CardR
                 title="Blue Dream"
                 paragraphs={[
@@ -176,7 +156,7 @@ export function TakeOffPurpleScreen() {
                 ]}
               />
             </div>
-            <div className="cardTwo  rounded-md flex-1 mt-28 opacity-0 h-auto text-left backdrop-blur-lg px-4 py-8">
+            <div className="cardTwo rounded-md flex-1 mt-28 h-[380px] text-left backdrop-blur-lg px-4 py-8">
               <CardL
                 heading="Specification"
                 specs={[
