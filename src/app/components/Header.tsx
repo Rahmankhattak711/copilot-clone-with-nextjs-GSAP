@@ -4,7 +4,7 @@ import React from "react";
 
 export const Header: React.FC = () => {
   return (
-    <header className="header">
+    <header className="header w-full flex items-center justify-center px-8 py-4 bg-transparent">
       <Link
         href="/"
         className="pe-none"

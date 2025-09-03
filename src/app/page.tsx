@@ -1,12 +1,14 @@
-import React from "react";
+import ButtonL from "./components/ButtonL";
 import { Hero } from "./pages/Hero";
-import TakeOff from "./pages/TakeOff";
 
-export default function App() {
+
+export default function page() {
   return (
-    <div>
+    <div className="relative">
       <Hero />
-      {/* <TakeOff/> */}
+      {/* <HighPointScreen/> */}
+      {/* <TakeOffPurpleScreen/> */}
+      {/* <TakeOrangeScreen/> */}
     </div>
   );
 }
