@@ -11,6 +11,17 @@ export default function HighPointScreen() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
+    //  gsap.to(".planet-floor ", {
+    //     height: "60vh",
+    //     ease: "none",
+    //     scrollTrigger: {
+    //       trigger: ".planet-floor",
+    //       start: "top bottom",
+    //       end: "bottom top",
+    //       scrub: true,
+    //     },
+    //   });
+
     gsap.to(".astro", {
       y: -1200,
       ease: "power2.inOut",
@@ -178,8 +189,13 @@ export default function HighPointScreen() {
           </div>
 
           <div className="cardWrapper flex items-center justify-center flex-col md:flex-row gap-72 mt-16 w-full">
-            <div className="cardOne rounded-md flex-1 opacity-90 h-[420px] text-left ">
+            <div className="cardOne rounded-md flex-1 h-[420px] text-left ">
               <CardR
+                cardBgColor="bg-[#A7DB8D]"
+                borderTop="border-t-[#A7DB8D]"
+                borderRight="border-r-[#A7DB8D]"
+                borderBottom="border-b-[#A7DB8D]"
+                borderLeft="border-l-[#A7DB8D]"
                 title="High Point"
                 paragraphs={[
                   "Like a first-class upgrade for your mind and body. This hybrid cannabis blend will have you soaring without the turbulence.",
@@ -188,8 +204,14 @@ export default function HighPointScreen() {
               />
             </div>
 
-            <div className="cardTwo rounded-md flex-1 mt-44 opacity-90 h-[420px] text-left  ">
+            <div className="cardTwo rounded-md flex-1 mt-44 h-[420px] text-left  ">
               <CardL
+                cardBgColor="bg-[#A7DB8D]"
+                borderTop="border-t-[#A7DB8D]"
+                borderRight="border-r-[#A7DB8D]"
+                borderBottom="border-b-[#A7DB8D]"
+                borderLeft="border-l-[#A7DB8D]"
+                cardTextColor="text-[#A7DB8D]"
                 heading="Specification"
                 specs={[
                   { label: "Strain", value: "Blue Dream" },
@@ -224,13 +246,13 @@ export default function HighPointScreen() {
         </div>
       </div>
 
-      <div className="planet-floor z-4 absolute left-0 w-full">
+      <div className=" z-4  w-full">
         <Image
           src="/highPoint/planet-floor.png.webp"
           alt="floor"
           width={1000}
           height={1000}
-          className=" w-full"
+          className="planet-floor fixed bottom-0 left-0 w-full"
         />
       </div>
 

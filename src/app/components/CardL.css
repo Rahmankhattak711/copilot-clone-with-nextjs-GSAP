@@ -10,8 +10,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background-color: #a7db8d;
-  opacity: 0.2;
+  background-color: rgba(167, 219, 141);
   -webkit-clip-path: polygon(
     calc(100% - 0px) 30px,
     calc(100% - 0px) calc(100% - 61px),
@@ -54,7 +53,10 @@
   position: absolute;
   inset: 0;
   z-index: 2;
-  background-color: #110d06;
+  background-color: rgba(17, 13, 6, 0.3);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  will-change: backdrop-filter;
   -webkit-clip-path: polygon(
     calc(100% - 10px) 40px,
     calc(100% - 10px) calc(100% - 65px),
@@ -81,10 +83,13 @@
   left: 0;
   height: 62px;
   width: 350px;
-  background-color: #110d06;
-  border-left: 1px solid #a7db8d;
-  border-top: 1px solid #a7db8d;
-  border-right: 1px solid #a7db8d;
+  background-color: rgba(17, 13, 6, 0.3);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  will-change: backdrop-filter;
+  border-left: 1px solid rgba(167, 219, 141, 0.8);
+  border-top: 1px solid rgba(167, 219, 141, 0.8);
+  border-right: 1px solid rgba(167, 219, 141, 0.8);
   -webkit-clip-path: polygon(
     calc(100% - 144px) 0,
     calc(100% - 144px) 30px,

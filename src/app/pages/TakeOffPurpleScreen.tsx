@@ -81,22 +81,6 @@ export function TakeOffPurpleScreen() {
         }
       );
 
-      // gsap.to(
-      //   ".scrollPara p"(
-      //   {
-      //     y: "0%",
-      //     opacity: 1,
-      //     ease: "power3.out",
-      //     scrollTrigger: {
-      //       trigger: ".scrollPara",
-      //       start: "top 10%",
-      //       end: "bottom 60%",
-      //       scrub:40,
-      //       markers: true,
-      //     },
-      //   })
-      // );
-
       animateCards();
 
       const boxEnter = () =>
@@ -143,8 +127,13 @@ export function TakeOffPurpleScreen() {
             </p>
           </div>
           <div className="cardWrapper flex items-center justify-center gap-56 ">
-            <div className="cardOne rounded-md px-4 flex-1 h-[380px] text-left backdrop-blur-lg ">
+            <div className="cardOne rounded-md px-4 flex-1 h-[380px] text-left ">
               <CardR
+                cardBgColor="bg-[#83EFFF]"
+                borderTop="border-t-[#83EFFF]"
+                borderRight="border-r-[#83EFFF]"
+                borderBottom="border-b-[#83EFFF]"
+                borderLeft="border-l-[#83EFFF]"
                 title="Blue Dream"
                 paragraphs={[
                   `The indicia that brings you down gently, like a feathered
@@ -156,8 +145,14 @@ export function TakeOffPurpleScreen() {
                 ]}
               />
             </div>
-            <div className="cardTwo rounded-md flex-1 mt-28 h-[380px] text-left backdrop-blur-lg px-4 py-8">
+            <div className="cardTwo rounded-md flex-1 mt-28 h-[380px] text-left">
               <CardL
+                cardBgColor="bg-[#83EFFF]"
+                cardTextColor="text-[#83EFFF]"
+                borderTop="border-t-[#83EFFF]"
+                borderRight="border-r-[#83EFFF]"
+                borderBottom="border-b-[#83EFFF]"
+                borderLeft="border-l-[#83EFFF]"
                 heading="Specification"
                 specs={[
                   { label: "Strain", value: "Blue Dream" },
