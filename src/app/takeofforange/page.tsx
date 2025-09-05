@@ -1,15 +1,15 @@
 "use client";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import "@/app/globals.css";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
+
 import CardR from "../components/CardR";
 import CardL from "../components/CardL";
 import Heading from "../components/Heading";
 
-export function TakeOrangeScreen() {
+export default function TakeOrangeScreen() {
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,19 +28,25 @@ export function TakeOrangeScreen() {
         },
       });
 
-      const tl = gsap.timeline({
+      gsap.timeline({
         scrollTrigger: {
           trigger: rootRef.current,
           start: "top top",
           end: "bottom top",
           scrub: 1.5,
         },
+      })
+        .to(".textAni", { y: -80, opacity: 1 }, 0)
+        .to(".box img", { y: -150 }, 0.2);
+
+      gsap.to(".box", {
+        y: -28,
+        x: -10,
+        duration: 3,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
       });
-      tl.to(".textAni", { y: -80, opacity: 1 }, 0).to(
-        ".box img",
-        { y: -150 },
-        0.2
-      );
 
       ["cloudOne", "cloudTwo"].forEach((cloud) => {
         gsap.to(`.${cloud} img`, {
@@ -52,15 +58,6 @@ export function TakeOrangeScreen() {
             scrub: 2,
           },
         });
-      });
-
-      gsap.to(".box", {
-        y: -28,
-        x: -10,
-        duration: 3,
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
       });
 
       gsap.fromTo(
@@ -79,7 +76,7 @@ export function TakeOrangeScreen() {
         }
       );
 
-      gsap.utils.toArray([".cardOne", ".cardTwo"]).forEach((card: any, i) => {
+      gsap.utils.toArray([".cardOne", ".cardTwo"]).forEach((card: any) => {
         gsap.to(card, {
           y: 0,
           opacity: 90,
@@ -87,9 +84,9 @@ export function TakeOrangeScreen() {
           ease: "power3.out",
           scrollTrigger: {
             trigger: card,
+            start: "top 90%",
             end: "bottom 60%",
             scrub: 1.2,
-            start: "top 90%",
           },
         });
       });
@@ -116,8 +113,8 @@ export function TakeOrangeScreen() {
       document.addEventListener("mousemove", handleMouseMove);
 
       gsap.to(".floor-img", {
-        x: "-30%",
-        scale: 1.2,
+        // scale: 1.2,
+        height: "100vh",
         ease: "none",
         scrollTrigger: {
           trigger: rootRef.current,
@@ -146,33 +143,48 @@ export function TakeOrangeScreen() {
             alt="planet"
             width={1000}
             height={1000}
-            className="w-[550px] "
+            className="w-[550px]"
           />
         </div>
 
         <div className="textAni w-[70%] flex items-center justify-center flex-col absolute top-44 z-30">
-          <Heading title="TAKE OFF" textColor="text-[#F28C51]" percengate="21%" distance="5g" />
+          <Heading
+            title="TAKE OFF"
+            textColor="text-[#F28C51]"
+            percengate="21%"
+            distance="5g"
+          />
+
           <div className="scrollPara relative mt-20 max-w-2xl overflow-hidden mb-16">
             <p className="font-[Rustea] text-5xl relative">
-              A COSMIC CALM IN <br /> EVERY WAY
+              MIND AND BODY <br /> TENSION RELEASE <br /> INCREASED ENERGY
             </p>
           </div>
-          <div className="cardWrapper flex flex-col md:flex-row gap-10 mt-16 w-full">
-            <div className="cardOne rounded-md flex-1 opacity-0 h-[420px] text-left backdrop-blur-lg px-4 py-8">
+
+          <div className="cardWrapper flex gap-56 w-full">
+            <div className="cardOne rounded-md flex-1 opacity-0 h-[420px] text-left">
               <CardR
+                cardInnerBgColor="bg-[#F28C51]"
+                borderTop="border-t-[#F28C51]"
+                borderRight="border-r-[#F28C51]"
+                borderBottom="border-b-[#F28C51]"
+                borderLeft="border-l-[#F28C51]"
+                cardBgColor="bg-[#F28C51]"
                 title="Blue Dream"
                 paragraphs={[
-                  `The indicia that brings you down gently, like a feathered
-                touchdown from cloud nine.`,
-                  `Whether you're looking to unwind, decompress, or just take a
-                breather, this bud's got your back...and your couch. Prepare for
-                a smooth descent into tranquility, where the only turbulence is
-                in your giggles.`,
+                  `The indicia that brings you down gently, like a feathered touchdown from cloud nine.`,
+                  `Whether you're looking to unwind, decompress, or just take a breather, this bud's got your back...and your couch.`,
                 ]}
               />
             </div>
-            <div className="cardTwo  rounded-md flex-1 mt-28 opacity-0 h-auto text-left backdrop-blur-lg px-4 py-8">
+            <div className="cardTwo rounded-md flex-1 mt-28 h-auto text-left">
               <CardL
+                borderTop="border-t-[#F28C51]"
+                borderRight="border-r-[#F28C51]"
+                borderBottom="border-b-[#F28C51]"
+                borderLeft="border-l-[#F28C51]"
+                cardBgColor="bg-[#F28C51]"
+                cardTextColor="text-[#F28C51]"
                 heading="Specification"
                 specs={[
                   { label: "Strain", value: "Blue Dream" },
@@ -196,92 +208,44 @@ export function TakeOrangeScreen() {
           />
         </div>
 
-        <div className="">
+        <div>
           <div className="astro-sprite flex items-center justify-center">
             <Image
               src="/orange/astronaut.png.webp"
               alt="astronaut"
               width={1000}
               height={1000}
-              className="w-[80px] z-20 absolute right-[33rem] -bottom-0 "
+              className="w-[80px] z-20 fixed right-[33rem] -bottom-0"
             />
           </div>
           <div className="astro-sprite flex items-center justify-center">
             <Image
               src="/orange/planet-floor-version-2.png.webp"
-              alt="astronaut"
+              alt="planet floor"
               width={1000}
               height={1000}
-              className="w-[600px] z-10 absolute -bottom-20 "
+              className="w-full z-10 fixed -bottom-44 floor-img"
             />
           </div>
         </div>
       </div>
 
       <div className="fixed bottom-0 left-0 w-full h-full">
-        <div className="cloudOne w-full">
-          <Image
-            src="/orange/0.png.webp"
-            alt="cloud"
-            width={1000}
-            height={1000}
-            className="w-full z-6 opacity-20 object-contain absolute bottom-44  left-0"
-          />
-        </div>
-        <div className="cloudTwo w-full">
-          <Image
-            src="/orange/1.png.webp"
-            alt="cloud"
-            width={1000}
-            height={1000}
-            className="w-full z-4 object-contain absolute top-0 left-0"
-          />
-        </div>
-        <div className="cloudTwo w-full">
-          <Image
-            src="/orange/2.png.webp"
-            alt="cloud"
-            width={1000}
-            height={1000}
-            className="w-full z-5 opacity-20 object-contain absolute -top-8 left-0"
-          />
-        </div>
-        <div className="cloudTwo w-full">
-          <Image
-            src="/orange/3.png.webp"
-            alt="cloud"
-            width={1000}
-            height={1000}
-            className="w-full z-4 opacity-20 object-contain absolute -top-14 left-0"
-          />
-        </div>
-        <div className="cloudTwo w-full">
-          <Image
-            src="/orange/4.png.webp"
-            alt="cloud"
-            width={1000}
-            height={1000}
-            className="w-full z-3 opacity-20 object-contain absolute -top-20 left-0"
-          />
-        </div>
-        <div className="cloudTwo w-full">
-          <Image
-            src="/orange/5.png.webp"
-            alt="cloud"
-            width={1000}
-            height={1000}
-            className="w-full z-2 opacity-20 object-contain absolute -top-28 left-0"
-          />
-        </div>
-        <div className="cloudTwo w-full">
-          <Image
-            src="/orange/6.png.webp"
-            alt="cloud"
-            width={1000}
-            height={1000}
-            className="w-full z-1 opacity-20 object-contain absolute -top-28 left-0"
-          />
-        </div>
+        {[0, 1, 2, 3, 4, 5, 6].map((n, i) => (
+          <div key={n} className="cloudTwo w-full">
+            <Image
+              src={`/orange/${n}.png.webp`}
+              alt="cloud"
+              width={1000}
+              height={1000}
+              className={`w-full object-contain absolute ${
+                i === 0
+                  ? "bottom-44 z-6 opacity-20"
+                  : `-top-${8 + i * 2} z-${6 - i} opacity-20`
+              } left-0`}
+            />
+          </div>
+        ))}
       </div>
     </section>
   );

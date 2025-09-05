@@ -1,45 +1,48 @@
 "use client";
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useEffect, useState } from "react";
 import TakeOff from "../pages/TakeOff";
 import TakeOrange from "../pages/TakeOrange";
 import TakeOffPurple from "../pages/TakeOffPurple";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Products() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const panels = [
+    <section key="1" className="w-screen h-screen">
+      <TakeOff />
+    </section>,
+    <section key="2" className="w-screen h-screen">
+      <TakeOrange />
+    </section>,
+    <section key="3" className="w-screen h-screen">
+      <TakeOffPurple />
+    </section>,
+  ];
 
   useEffect(() => {
-    const sections = gsap.utils.toArray<HTMLElement>(".panel");
+    const handleScroll = (e: WheelEvent) => {
+      if (e.deltaY > 0) {
+        setActiveIndex((prev) => (prev + 1) % panels.length);
+      } else if (e.deltaY < 0) {
+        setActiveIndex((prev) => (prev - 1 + panels.length) % panels.length);
+      }
+    };
 
-    gsap.to(sections, {
-      xPercent: -100 * (sections.length - 1),
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        pin: true,
-        scrub: 1,
-        snap: 1 / (sections.length - 1),
-        end: () => "+=" + containerRef.current!.offsetWidth,
-      },
-    });
-  }, []);
+    window.addEventListener("wheel", handleScroll, { passive: true });
+    return () => window.removeEventListener("wheel", handleScroll);
+  }, [panels.length]);
+
+  useEffect(() => {
+    const handleClick = () => {
+      setActiveIndex((prev) => (prev + 1) % panels.length);
+    };
+
+    window.addEventListener("click", handleClick);
+    return () => window.removeEventListener("click", handleClick);
+  }, [panels.length]);
 
   return (
-    <div className="overflow-x-hidden">
-      <div ref={containerRef} className="flex w-[300vw]">
-        <section className="panel w-full">
-          <TakeOff />
-        </section>
-        <section className="panel w-full">
-          <TakeOrange />
-        </section>
-        <section className="panel w-full">
-          <TakeOffPurple />
-        </section>
-      </div>
+    <div className="w-screen h-screen overflow-hidden relative">
+      <div className="w-full h-full">{panels[activeIndex]}</div>
     </div>
   );
 }

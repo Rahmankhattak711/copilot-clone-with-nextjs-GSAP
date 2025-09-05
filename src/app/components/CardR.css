@@ -1,20 +1,20 @@
 .cardR {
   position: relative;
   width: 350px;
-  font-family: "Rustea", sans-serif;
   color: white;
 }
 
 .cardRTop {
+  font-family: "Rustea", sans-serif;
   clip-path: polygon(144px 0, 144px 30px, 176px 100%, 100% 100%, 100% 0%);
+  background-color: rgba(17, 13, 6, 0.3);
   backdrop-filter: blur(22px);
-  background-color: #110D06;
+  -webkit-backdrop-filter: blur(22px);
+  will-change: backdrop-filter;
   height: 62px;
   top: 0%;
+  border-left: #a7db8d;
   width: 350px;
-  border-left: 1px solid #a7db8d;
-  border-right: 1px solid #a7db8d;
-  border-top: 1px solid #a7db8d;
   position: absolute;
   z-index: 3;
   display: flex;
@@ -27,8 +27,6 @@
 }
 
 .cardRBody {
-  background-color: #a7db8d;
-  opacity: 0.1;
   height: 350px;
   width: 350px;
   clip-path: polygon(
@@ -56,7 +54,12 @@
 .cardRInner {
   position: absolute;
   inset: 0;
-  background-color: #110D06;
+  z-index: 0;
+  background-color: rgba(17, 13, 6, 0.8);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  will-change: backdrop-filter;
+
   clip-path: polygon(
     12px 42px,
     12px calc(100% - 73px),
@@ -66,14 +69,52 @@
     163px 74px,
     132px 42px
   );
-  z-index: 2;
 }
+.cardRInnerBorder {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  /* background-color: #A7DB8D; */
+  /* background-color: rgba(167, 219, 141, 0.2); */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  will-change: backdrop-filter;
+  clip-path: polygon(
+    10px 40px,
+    10px calc(100% - 71px),
+    58px calc(100% - 10px),
+    calc(100% - 10px) calc(100% - 10px),
+    calc(100% - 10px) 72px,
+    165px 72px,
+    134px 40px
+  );
+}
+
+/* .cardRInner {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: rgba(17, 13, 6, 0.3);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  will-change: backdrop-filter;
+  clip-path: polygon(
+    12px 42px,
+    12px calc(100% - 73px),
+    60px calc(100% - 12px),
+    calc(100% - 12px) calc(100% - 12px),
+    calc(100% - 12px) 74px,
+    163px 74px,
+    132px 42px
+  );
+} */
 
 .cardRContent {
   position: absolute;
   inset: 0;
   z-index: 4;
-  padding: 80px 24px 24px;
+  font-size: 14px;
+  padding: 90px 24px 28px;
   display: flex;
   flex-direction: column;
   gap: 1rem;

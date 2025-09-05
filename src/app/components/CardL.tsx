@@ -9,26 +9,53 @@ type Spec = {
 type CardLProps = {
   heading: string;
   specs: Spec[];
+  cardBgColor: string;
+  cardTextColor: string;
+  borderTop: string;
+  borderRight: string;
+  borderBottom: string;
+  borderLeft: string;
 };
 
 export default function CardL({
-  heading = "Specification",
-  specs = [],
+  heading,
+  specs,
+  cardBgColor,
+  cardTextColor,
+  borderTop,
+  borderRight,
+  borderBottom,
+  borderLeft,
 }: CardLProps) {
   return (
-    <div className="fookin-a-box">
-      <div className="mb"></div>
+    <div className="fookin-a-box font">
+      {/* Outer polygon background */}
+      <div className={`mb ${cardBgColor}`}></div>
 
+      {/* Inner polygon border */}
+      <div className={`innerPolygonBorder ${cardBgColor}`}></div>
+
+      {/* Inner polygon background */}
       <div className="innerPolygon"></div>
 
-      <h2 className="heading-clip-mirrored">{heading}</h2>
+      {/* Heading strip */}
+      <h2
+        className={`heading-clip-mirrored border ${borderTop} ${borderRight} ${borderBottom} ${borderLeft}`}
+      >
+        {heading}
+      </h2>
 
+      {/* Content */}
       <div className="clip-shape-mirrored">
         <ul className="flex flex-col gap-2 py-5">
           {specs.map((item, index) => (
             <li key={index} className="flex items-center gap-14">
-              <span className="text-[#A7DB8D]">{item.label}:</span>
-              <span>{item.value}</span>
+              <div className="w-1/2">
+                <div className={`${cardTextColor}`}>{item.label}:</div>
+              </div>
+              <div className="w-1/2 text-white">
+                <div>{item.value}</div>
+              </div>
             </li>
           ))}
         </ul>

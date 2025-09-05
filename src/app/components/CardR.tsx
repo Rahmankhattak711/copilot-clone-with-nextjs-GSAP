@@ -1,24 +1,43 @@
-"use client";
-import React from "react";
 import "./CardR.css";
 
-type CardRProps = {
+interface CardRProps {
   title: string;
   paragraphs: string[];
-};
-
-export default function CardR({ title, paragraphs }: CardRProps) {
+  borderTop: string;
+  borderRight: string;
+  borderBottom: string;
+  borderLeft: string;
+  cardBgColor: string;
+  cardInnerBgColor: string
+}
+export default function CardR({
+  title,
+  paragraphs = [],
+  borderTop,
+  borderRight,
+  borderBottom,
+  borderLeft,
+  cardBgColor,
+  cardInnerBgColor
+}: CardRProps) {
   return (
     <div className="cardR">
-      <div className="cardRBody"></div>
-
+      <div className={`cardRBody ${cardBgColor}`}></div>
+      {/* <div className="cardRInner"></div> */}
+      <div className={`cardRInnerBorder ${cardInnerBgColor}`}></div>
       <div className="cardRInner"></div>
 
-      <div className="cardRTop">{title}</div>
+      <div
+        className={`cardRTop border-[1px] ${borderTop} ${borderRight} ${borderBottom} ${borderLeft}`}
+      >
+        {title}
+      </div>
 
       <div className="cardRContent">
         {paragraphs.map((text, idx) => (
-          <p key={idx}>{text}</p>
+          <p key={idx} className="text-base">
+            {text}
+          </p>
         ))}
       </div>
     </div>
