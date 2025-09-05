@@ -2,6 +2,7 @@
 import { gsap } from "gsap";
 import { useEffect } from "react";
 import "./MainHeader.css";
+import Link from "next/link";
 
 export default function MainHeader() {
   useEffect(() => {
@@ -62,56 +63,60 @@ export default function MainHeader() {
   return (
     <div className="mainH flex items-center justify-center relative">
       <div className="console w-full h-20 px-20 rounded-md flex py-8 items-center justify-between">
-
         {/* TAKE OFF */}
-        <div className="scramble flex gap-1 uppercase text-base cursor-pointer">
-          <div>
-            <span>T</span>
-            <span>A</span>
-            <span>K</span>
-            <span>E</span>
+        <Link href="/takeofforange">
+          <div className="scramble flex gap-1 uppercase text-base cursor-pointer">
+            <div>
+              <span>T</span>
+              <span>A</span>
+              <span>K</span>
+              <span>E</span>
+            </div>
+            <div>
+              <span>O</span>
+              <span>F</span>
+              <span>F</span>
+            </div>
           </div>
-          <div>
-            <span>O</span>
-            <span>F</span>
-            <span>F</span>
-          </div>
-        </div>
+        </Link>
 
         {/* TOUCH DOWN */}
-        <div className="scramble flex gap-1 uppercase text-base cursor-pointer">
-          <div>
-            <span>T</span>
-            <span>O</span>
-            <span>U</span>
-            <span>C</span>
-            <span>H</span>
+        <Link href="/takeoffpurple">
+          <div className="scramble flex gap-1 uppercase text-base cursor-pointer">
+            <div>
+              <span>T</span>
+              <span>O</span>
+              <span>U</span>
+              <span>C</span>
+              <span>H</span>
+            </div>
+            <div>
+              <span>D</span>
+              <span>O</span>
+              <span>W</span>
+              <span>N</span>
+            </div>
           </div>
-          <div>
-            <span>D</span>
-            <span>O</span>
-            <span>W</span>
-            <span>N</span>
-          </div>
-        </div>
+        </Link>
 
         {/* HIGH POINT */}
-        <div className="scramble flex gap-1 uppercase text-base cursor-pointer">
-          <div>
-            <span>H</span>
-            <span>I</span>
-            <span>G</span>
-            <span>H</span>
+        <Link href="/highpoint">
+          <div className="scramble flex gap-1 uppercase text-base cursor-pointer">
+            <div>
+              <span>H</span>
+              <span>I</span>
+              <span>G</span>
+              <span>H</span>
+            </div>
+            <div>
+              <span>P</span>
+              <span>O</span>
+              <span>I</span>
+              <span>N</span>
+              <span>T</span>
+            </div>
           </div>
-          <div>
-            <span>P</span>
-            <span>O</span>
-            <span>I</span>
-            <span>N</span>
-            <span>T</span>
-          </div>
-        </div>
-
+        </Link>
       </div>
     </div>
   );

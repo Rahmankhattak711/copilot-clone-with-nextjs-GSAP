@@ -9,7 +9,7 @@ import CardR from "../components/CardR";
 import CardL from "../components/CardL";
 import Heading from "../components/Heading";
 
-export function TakeOrangeScreen() {
+export default function TakeOrangeScreen() {
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -164,6 +164,7 @@ export function TakeOrangeScreen() {
           <div className="cardWrapper flex gap-56 w-full">
             <div className="cardOne rounded-md flex-1 opacity-0 h-[420px] text-left">
               <CardR
+                cardInnerBgColor="bg-[#F28C51]"
                 borderTop="border-t-[#F28C51]"
                 borderRight="border-r-[#F28C51]"
                 borderBottom="border-b-[#F28C51]"

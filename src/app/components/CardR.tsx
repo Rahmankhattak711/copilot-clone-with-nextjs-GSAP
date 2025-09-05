@@ -8,6 +8,7 @@ interface CardRProps {
   borderBottom: string;
   borderLeft: string;
   cardBgColor: string;
+  cardInnerBgColor: string
 }
 export default function CardR({
   title,
@@ -17,12 +18,13 @@ export default function CardR({
   borderBottom,
   borderLeft,
   cardBgColor,
+  cardInnerBgColor
 }: CardRProps) {
   return (
     <div className="cardR">
       <div className={`cardRBody ${cardBgColor}`}></div>
       {/* <div className="cardRInner"></div> */}
-      <div className="cardRInnerBorder"></div>
+      <div className={`cardRInnerBorder ${cardInnerBgColor}`}></div>
       <div className="cardRInner"></div>
 
       <div

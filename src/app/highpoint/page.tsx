@@ -191,6 +191,7 @@ export default function HighPointScreen() {
           <div className="cardWrapper flex items-center justify-center flex-col md:flex-row gap-72 mt-16 w-full">
             <div className="cardOne rounded-md flex-1 h-[420px] text-left ">
               <CardR
+                cardInnerBgColor="bg-[#A7DB8D]"
                 cardBgColor="bg-[#A7DB8D]"
                 borderTop="border-t-[#A7DB8D]"
                 borderRight="border-r-[#A7DB8D]"

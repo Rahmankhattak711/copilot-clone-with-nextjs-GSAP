@@ -28,17 +28,24 @@ export default function CardL({
   borderLeft,
 }: CardLProps) {
   return (
-    <div className="fookin-a-box font" >
+    <div className="fookin-a-box font">
+      {/* Outer polygon background */}
       <div className={`mb ${cardBgColor}`}></div>
 
+      {/* Inner polygon border */}
+      <div className={`innerPolygonBorder ${cardBgColor}`}></div>
+
+      {/* Inner polygon background */}
       <div className="innerPolygon"></div>
 
+      {/* Heading strip */}
       <h2
-        className={`heading-clip-mirrored border-[1px] ${borderTop} ${borderRight} ${borderBottom} ${borderLeft}`}
+        className={`heading-clip-mirrored border ${borderTop} ${borderRight} ${borderBottom} ${borderLeft}`}
       >
         {heading}
       </h2>
 
+      {/* Content */}
       <div className="clip-shape-mirrored">
         <ul className="flex flex-col gap-2 py-5">
           {specs.map((item, index) => (

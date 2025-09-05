@@ -13,7 +13,7 @@
   will-change: backdrop-filter;
   height: 62px;
   top: 0%;
-  border-left: #A7DB8D;
+  border-left: #a7db8d;
   width: 350px;
   position: absolute;
   z-index: 3;
@@ -69,13 +69,13 @@
     163px 74px,
     132px 42px
   );
-
 }
 .cardRInnerBorder {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-color: #A7DB8D;
+  /* background-color: #A7DB8D; */
+  /* background-color: rgba(167, 219, 141, 0.2); */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   will-change: backdrop-filter;
@@ -89,7 +89,6 @@
     134px 40px
   );
 }
-
 
 /* .cardRInner {
   position: absolute;
