@@ -12,9 +12,10 @@ interface ButtonMirroredProps {
 export default function ButtonL({
   children,
   onClick,
+  className,
 }: ButtonMirroredProps) {
   return (
-    <button onClick={onClick} className={"btnr topr"}>
+    <button onClick={onClick} className={`btnr topr ${className}`}>
       {children}
     </button>
 

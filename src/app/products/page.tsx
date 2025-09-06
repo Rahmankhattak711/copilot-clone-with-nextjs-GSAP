@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import TakeOff from "../pages/TakeOff";
 import TakeOrange from "../pages/TakeOrange";
 import TakeOffPurple from "../pages/TakeOffPurple";
+import gsap from "gsap";
 
 export default function Products() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -27,7 +28,19 @@ export default function Products() {
       }
     };
 
-    window.addEventListener("wheel", handleScroll, { passive: true });
+    gsap.to(".hr", {
+      y: -activeIndex * 100,
+      duration: 10,
+      ease: "power2.out",
+      onComplete: () => {
+        gsap.to(".hr", {
+          y: -activeIndex * 100,
+          duration: 10,
+        });
+      }
+    });
+
+    window.addEventListener("wheel", handleScroll, { passive: false });
     return () => window.removeEventListener("wheel", handleScroll);
   }, [panels.length]);
 
@@ -41,8 +54,8 @@ export default function Products() {
   }, [panels.length]);
 
   return (
-    <div className="w-screen h-screen overflow-hidden relative">
-      <div className="w-full h-full">{panels[activeIndex]}</div>
+    <div className="hr w-screen h-screen overflow-hidden relative">
+      <div className=" w-full h-full">{panels[activeIndex]}</div>
     </div>
   );
 }

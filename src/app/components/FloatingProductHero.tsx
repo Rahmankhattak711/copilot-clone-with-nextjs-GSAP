@@ -11,6 +11,8 @@ export default function FloatingProductHero({
   cloudTwoImage,
   cloudThreeImage,
   cloudFourImage,
+  bottleClass,
+  mainBgClass,
 }: {
   headingText: string;
   bottleImage: string;
@@ -19,6 +21,8 @@ export default function FloatingProductHero({
   cloudTwoImage: string;
   cloudThreeImage: string;
   cloudFourImage: string;
+  bottleClass: string;
+  mainBgClass: string;
 }) {
   useEffect(() => {
     gsap.to(".textRotation", {
@@ -99,7 +103,7 @@ export default function FloatingProductHero({
           alt="Planet Background"
           width={1000}
           height={1000}
-          className="w-full object-contain"
+          className={`w-full object-contain ${mainBgClass}`}
         />
       </div>
 
@@ -123,7 +127,7 @@ export default function FloatingProductHero({
           alt="product"
           width={1000}
           height={1000}
-          className="w-[200px] object-contain"
+          className={`w-[200px] object-contain ${bottleClass}`}
         />
       </div>
 
