@@ -164,7 +164,7 @@ export default function TakeOrangeScreen() {
           <div className="cardWrapper flex gap-56 w-full">
             <div className="cardOne rounded-md flex-1 opacity-0 h-[420px] text-left">
               <CardR
-                cardInnerBgColor="bg-[#F28C51]"
+                cardInnerBgColor="bg-[rgba(142,140,81,0.5)]"
                 borderTop="border-t-[#F28C51]"
                 borderRight="border-r-[#F28C51]"
                 borderBottom="border-b-[#F28C51]"
@@ -183,7 +183,7 @@ export default function TakeOrangeScreen() {
                 borderRight="border-r-[#F28C51]"
                 borderBottom="border-b-[#F28C51]"
                 borderLeft="border-l-[#F28C51]"
-                cardBgColor="bg-[#F28C51]"
+                cardBgColor="bg-[rgba(142,140,81,0.5)]"
                 cardTextColor="text-[#F28C51]"
                 heading="Specification"
                 specs={[

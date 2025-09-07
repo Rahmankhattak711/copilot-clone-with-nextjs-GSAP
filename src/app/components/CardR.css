@@ -55,9 +55,9 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-color: rgba(16, 16, 16,0.9);
+  background-color: rgba(16, 16, 16,0.3);
   backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(200px);
   will-change: backdrop-filter;
   clip-path: polygon(
     12px 42px,
@@ -89,25 +89,6 @@
     134px 40px
   );
 }
-
-/* .cardRInner {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-color: rgba(17, 13, 6, 0.3);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-  will-change: backdrop-filter;
-  clip-path: polygon(
-    12px 42px,
-    12px calc(100% - 73px),
-    60px calc(100% - 12px),
-    calc(100% - 12px) calc(100% - 12px),
-    calc(100% - 12px) 74px,
-    163px 74px,
-    132px 42px
-  );
-} */
 
 .cardRContent {
   position: absolute;

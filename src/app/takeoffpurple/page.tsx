@@ -132,7 +132,7 @@ export default function TakeOffPurpleScreen() {
           <div className="cardWrapper flex items-center justify-center gap-72">
             <div className="cardOne flex-1 h-[380px] text-left">
               <CardR
-                cardInnerBgColor="bg-[#83EFFF]"
+                cardInnerBgColor="bg-[rgba(131,239,255,0.5)]"
                 cardBgColor="bg-[#83EFFF]"
                 borderTop="border-t-[#83EFFF]"
                 borderRight="border-r-[#83EFFF]"
@@ -147,7 +147,7 @@ export default function TakeOffPurpleScreen() {
             </div>
             <div className="cardTwo flex-1 h-[380px] mt-44 text-left">
               <CardL
-                cardBgColor="bg-[#83EFFF]"
+                cardBgColor="bg-[rgba(131,239,255,0.5)]"
                 cardTextColor="text-[#83EFFF]"
                 borderTop="border-t-[#83EFFF]"
                 borderRight="border-r-[#83EFFF]"

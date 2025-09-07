@@ -3,28 +3,26 @@ import React, { useEffect } from "react";
 import gsap from "gsap";
 import FloatingProductHero from "../components/FloatingProductHero";
 
-export default function TakeOrange() {
-    useEffect(() => {
-    gsap.to(".main-bg-orange", {
-      rotate: -60,
-      duration: 0.3,
-      ease: "linear",
-    });
+export default function TakeOrange({ isActive }) {
+  useEffect(() => {
+    if (isActive) {
+      gsap.to(".main-bg-orange", {
+        rotate: -60,
+        duration: 0.3,
+        ease: "linear",
+      });
 
-    gsap.from(".bottleOrange", {
-      x: 20,
-      rotate: 20,
-      duration: 0.3,
-      ease: "linear",
-    });
+      gsap.fromTo(
+        ".bottleOrange",
+        { x: 20, rotate: 20 },
+        { x: 0, rotate: 0, duration: 0.3, ease: "linear" }
+      );
+    } else {
+      gsap.set(".main-bg-orange", { rotate: 0 });
+      gsap.set(".bottleOrange", { x: 0, rotate: 0 });
+    }
+  }, [isActive]);
 
-    gsap.to(".bottleOrange",{
-      x: 0,
-      rotate: 0,
-    })
-
-
-  }, []);
   return (
     <div className="bg-[#5A2043]">
       <FloatingProductHero

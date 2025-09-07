@@ -3,28 +3,25 @@ import React, { useEffect } from "react";
 import FloatingProductHero from "../components/FloatingProductHero";
 import gsap from "gsap";
 
-export default function TakeOff() {
+export default function TakeOff({ isActive}) {
   useEffect(() => {
-    gsap.to(".main-bg", {
-      rotate: -60,
-      duration: 0.3,
-      ease: "linear",
-    });
+    if (isActive) {
+      gsap.to(".main-bg", {
+        rotate: -60,
+        duration: 0.3,
+        ease: "linear",
+      });
 
-    gsap.from(".bottle", {
-      x: 20,
-      rotate: 20,
-      duration: 0.3,
-      ease: "linear",
-    });
-
-    gsap.to(".bottle",{
-      x: 0,
-      rotate: 0,
-    })
-
-
-  }, []);
+      gsap.fromTo(
+        ".bottle",
+        { x: 20, rotate: 20 },
+        { x: 0, rotate: 0, duration: 0.3, ease: "linear" }
+      );
+    } else {
+      gsap.set(".main-bg", { rotate: 0 });
+      gsap.set(".bottle", { x: 0, rotate: 0 });
+    }
+  }, [isActive]);
 
   return (
     <div className="bg-[#246458]">

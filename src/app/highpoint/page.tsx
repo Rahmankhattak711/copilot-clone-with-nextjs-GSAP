@@ -7,30 +7,19 @@ import CardR from "../components/CardR";
 import CardL from "../components/CardL";
 import Heading from "../components/Heading";
 
-export default function HighPointScreen() {
+const useHighPointAnimations = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    //  gsap.to(".planet-floor ", {
-    //     height: "60vh",
-    //     ease: "none",
-    //     scrollTrigger: {
-    //       trigger: ".planet-floor",
-    //       start: "top bottom",
-    //       end: "bottom top",
-    //       scrub: true,
-    //     },
-    //   });
-
     gsap.to(".astro", {
-      y: -1200,
+      y: -100,
       ease: "power2.inOut",
       scrollTrigger: {
         trigger: ".astro",
-        start: "top 10%",
+        start: "top 100%",
         end: "bottom 10%",
-        scrub: 100,
-        markers: true,
+        scrub: 20,
+        markers: false,
       },
     });
 
@@ -39,13 +28,12 @@ export default function HighPointScreen() {
         trigger: "section",
         start: "top top",
         end: "bottom top",
-        scrub: 1,
+        scrub: true,
       },
     });
 
-    tl.to(".textAni", { y: -80, opacity: 1 }, 0);
-    tl.to(".box img", { y: -150 }, 0.2);
-    // tl.to(".astro img", { y: -5000, rotate: -360 }, 0.5);
+    tl.to(".textAni", { y: -80, opacity: 1 }, 0)
+      .to(".box img", { y: -150 }, 0.2);
 
     ["cloudOne", "cloudTwo", "cloudThree", "cloudFour"].forEach((cloud) => {
       gsap.to(`.${cloud} img`, {
@@ -54,7 +42,7 @@ export default function HighPointScreen() {
           trigger: "section",
           start: "top bottom",
           end: "bottom top",
-          scrub: 2,
+          scrub: true,
         },
       });
     });
@@ -79,21 +67,32 @@ export default function HighPointScreen() {
           trigger: ".scrollPara",
           start: "top 85%",
           end: "bottom 60%",
-          scrub: 1.2,
+          scrub: true,
         },
       }
     );
 
     gsap.to(".cardOne, .cardTwo", {
-      y: -1000,
+      y: -300,
       duration: 1.2,
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".cardOne, .cardTwo",
-        start: "top 10%",
-        end: "bottom 10%",
-        scrub: 2,
-        markers: true,
+        start: "top 100%",
+        end: "bottom 100%",
+        scrub: 10,
+        markers: false,
+      },
+    });
+
+    gsap.to(".floor-img", {
+      scale: 1.2,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "section",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
       },
     });
 
@@ -121,56 +120,52 @@ export default function HighPointScreen() {
     };
     document.addEventListener("mousemove", handleMouseMove);
 
-    gsap.to(".floor-img", {
-      // y: "30px",
-      scale: 1.2,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "section",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
       if (boxElement) {
         boxElement.removeEventListener("mouseenter", boxEnter);
         boxElement.removeEventListener("mouseleave", boxLeave);
       }
+      document.removeEventListener("mousemove", handleMouseMove);
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
+};
+
+export default function HighPointScreen() {
+  useHighPointAnimations();
 
   return (
-    <section className="w-full h-[1100px] bg-[#124136] relative">
+    <section className="w-full h-[1100px] bg-[#124136] relative overflow-hidden">
       <div className="w-full h-1/2 bg-[#124136] relative flex flex-col items-center justify-center text-center px-4">
-        <div>
+        <div className="absolute inset-0 overflow-hidden">
           <div className="absolute left-0 -top-20">
             <Image
               src="/highPoint/cloud-top-left.png.webp"
               alt="cloud"
-              width={1000}
-              height={1000}
+              width={120}
+              height={120}
               className="w-[120px] object-contain"
+              priority
             />
           </div>
           <div className="absolute right-56 -top-72">
             <Image
               src="/highPoint/planet-background.png.webp"
               alt="planet"
-              width={1000}
-              height={1000}
+              width={450}
+              height={450}
               className="w-[450px] object-contain"
+              priority
             />
           </div>
           <div className="absolute right-56 -top-20">
             <Image
               src="/highPoint/spaceship.png.webp"
               alt="spaceship"
-              width={1000}
-              height={1000}
+              width={200}
+              height={200}
               className="w-[200px] object-contain"
+              priority
             />
           </div>
         </div>
@@ -183,15 +178,15 @@ export default function HighPointScreen() {
             distance="5g"
           />
           <div className="scrollPara relative max-w-2xl overflow-hidden mb-16">
-            <p className="font-[Rustea] text-5xl uppercase relative">
+            <p className="font-[Rustea] text-5xl uppercase">
               ride the wave of <br /> euphoria
             </p>
           </div>
 
-          <div className="cardWrapper flex items-center justify-center flex-col md:flex-row gap-72 mt-16 w-full">
-            <div className="cardOne rounded-md flex-1 h-[420px] text-left ">
+          <div className="cardWrapper flex items-center justify-center flex-col md:flex-row gap-10 md:gap-72 mt-16 w-full">
+            <div className="cardOne rounded-md flex-1 h-[420px] text-left">
               <CardR
-                cardInnerBgColor="bg-[#A7DB8D]"
+                cardInnerBgColor="bg-[rgba(167,219,141,0.5)]"
                 cardBgColor="bg-[#A7DB8D]"
                 borderTop="border-t-[#A7DB8D]"
                 borderRight="border-r-[#A7DB8D]"
@@ -205,9 +200,9 @@ export default function HighPointScreen() {
               />
             </div>
 
-            <div className="cardTwo rounded-md flex-1 mt-44 h-[420px] text-left  ">
+            <div className="cardTwo rounded-md flex-1 mt-10 md:mt-44 h-[420px] text-left">
               <CardL
-                cardBgColor="bg-[#A7DB8D]"
+                cardBgColor="bg-[rgba(167,219,141,0.5)]"
                 borderTop="border-t-[#A7DB8D]"
                 borderRight="border-r-[#A7DB8D]"
                 borderBottom="border-b-[#A7DB8D]"
@@ -221,7 +216,7 @@ export default function HighPointScreen() {
                   { label: "THC", value: "18%" },
                   { label: "CBD", value: "1%" },
                 ]}
-              />{" "}
+              />
             </div>
           </div>
         </div>
@@ -230,9 +225,10 @@ export default function HighPointScreen() {
           <Image
             src="/assets/hybrid-product.png.webp"
             alt="bottle"
-            width={1000}
-            height={1000}
+            width={180}
+            height={180}
             className="w-[180px] object-contain"
+            priority
           />
         </div>
 
@@ -243,21 +239,23 @@ export default function HighPointScreen() {
             width={100}
             height={100}
             className="h-auto object-contain"
+            priority
           />
         </div>
       </div>
 
-      <div className=" z-4  w-full">
+      <div className="z-4 w-full">
         <Image
           src="/highPoint/planet-floor.png.webp"
           alt="floor"
           width={1000}
           height={1000}
-          className="planet-floor fixed bottom-0 left-0 w-full"
+          className="planet-floor floor-img fixed bottom-0 left-0 w-full object-cover"
+          priority
         />
       </div>
 
-      <div className="fixed bottom-0 left-0 w-full h-full">
+      <div className="fixed bottom-0 left-0 w-full h-full pointer-events-none">
         <div className="cloudOne w-full">
           <Image
             src="/assets/0.png.webp"

@@ -3,26 +3,26 @@ import React, { useEffect } from "react";
 import gsap from "gsap";
 import FloatingProductHero from "../components/FloatingProductHero";
 
-export default function TakeOffPurple() {
+export default function TakeOffPurple({ isActive }) {
   useEffect(() => {
-    gsap.to(".main-bg-orange", {
-      rotate: -60,
-      duration: 0.3,
-      ease: "linear",
-    });
+    if (isActive) {
+      gsap.to(".main-bg-purple", {
+        rotate: -60,
+        duration: 0.3,
+        ease: "linear",
+      });
 
-    gsap.from(".bottleOrange", {
-      x: 20,
-      rotate: 20,
-      duration: 0.3,
-      ease: "linear",
-    });
+      gsap.fromTo(
+        ".bottlePurple",
+        { x: 20, rotate: 20 },
+        { x: 0, rotate: 0, duration: 0.3, ease: "linear" }
+      );
+    } else {
+      gsap.set(".main-bg-purple", { rotate: 0 });
+      gsap.set(".bottlePurple", { x: 0, rotate: 0 });
+    }
+  }, [isActive]);
 
-    gsap.to(".bottleOrange", {
-      x: 0,
-      rotate: 0,
-    });
-  }, []);
   return (
     <div className="bg-[#152448]">
       <FloatingProductHero
@@ -32,8 +32,8 @@ export default function TakeOffPurple() {
         cloudOneImage="/purple/0.png.webp"
         cloudTwoImage="/purple/1.png.webp"
         cloudThreeImage="/purple/2.png.webp"
-        bottleClass="bottleOrange"
-        mainBgClass="main-bg-orange"
+        bottleClass="bottlePurple"
+        mainBgClass="main-bg-purple"
       />
     </div>
   );
