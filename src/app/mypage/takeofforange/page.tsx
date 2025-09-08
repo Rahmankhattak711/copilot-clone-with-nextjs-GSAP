@@ -1,13 +1,13 @@
 "use client";
+import "@/app/globals.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
 import Image from "next/image";
-import "@/app/globals.css";
+import { useEffect, useRef } from "react";
 
-import CardR from "../components/CardR";
-import CardL from "../components/CardL";
-import Heading from "../components/Heading";
+import CardL from "../../components/CardL";
+import CardR from "../../components/CardR";
+import Heading from "../../components/Heading";
 
 export default function TakeOrangeScreen() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -28,14 +28,15 @@ export default function TakeOrangeScreen() {
         },
       });
 
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: rootRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1.5,
-        },
-      })
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: rootRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1.5,
+          },
+        })
         .to(".textAni", { y: -80, opacity: 1 }, 0)
         .to(".box img", { y: -150 }, 0.2);
 

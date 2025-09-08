@@ -224,7 +224,7 @@ export const Hero = () => {
           <div className="paragraph-text">
             <h2 className="mb-4 text-2xl mt-4">ARE YOU OVER 21 YEARS OLD?</h2>
             <div className="flex items-center justify-center gap-4 w-full">
-              <Link href="/products">
+              <Link href="/mypage">
                 <ButtonL className="scramble fontM flex gap-1 uppercase text-base cursor-pointer">
                   <div>
                     <span>H</span>

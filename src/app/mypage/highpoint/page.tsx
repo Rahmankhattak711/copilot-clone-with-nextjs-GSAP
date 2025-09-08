@@ -1,11 +1,11 @@
 "use client";
-import Image from "next/image";
-import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import CardR from "../components/CardR";
-import CardL from "../components/CardL";
-import Heading from "../components/Heading";
+import Image from "next/image";
+import { useEffect } from "react";
+import CardL from "../../components/CardL";
+import CardR from "../../components/CardR";
+import Heading from "../../components/Heading";
 
 const useHighPointAnimations = () => {
   useEffect(() => {
@@ -32,8 +32,11 @@ const useHighPointAnimations = () => {
       },
     });
 
-    tl.to(".textAni", { y: -80, opacity: 1 }, 0)
-      .to(".box img", { y: -150 }, 0.2);
+    tl.to(".textAni", { y: -80, opacity: 1 }, 0).to(
+      ".box img",
+      { y: -150 },
+      0.2
+    );
 
     ["cloudOne", "cloudTwo", "cloudThree", "cloudFour"].forEach((cloud) => {
       gsap.to(`.${cloud} img`, {

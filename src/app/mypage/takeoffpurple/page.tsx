@@ -4,10 +4,14 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import CardL from "../components/CardL";
-import CardR from "../components/CardR";
-import { animateCards, animateFloor, handleMouseMove } from "../utils/animate";
-import Heading from "../components/Heading";
+import CardL from "../../components/CardL";
+import CardR from "../../components/CardR";
+import Heading from "../../components/Heading";
+import {
+  animateCards,
+  animateFloor,
+  handleMouseMove,
+} from "../../utils/animate";
 
 export default function TakeOffPurpleScreen() {
   const rootRef = useRef<HTMLElement>(null);
@@ -82,9 +86,17 @@ export default function TakeOffPurpleScreen() {
       animateFloor();
 
       const boxEnter = () =>
-        gsap.to(boxRef.current, { scale: 1.08, duration: 0.5, ease: "power2.out" });
+        gsap.to(boxRef.current, {
+          scale: 1.08,
+          duration: 0.5,
+          ease: "power2.out",
+        });
       const boxLeave = () =>
-        gsap.to(boxRef.current, { scale: 1, duration: 0.5, ease: "power2.out" });
+        gsap.to(boxRef.current, {
+          scale: 1,
+          duration: 0.5,
+          ease: "power2.out",
+        });
 
       const boxElement = boxRef.current;
       if (boxElement) {
@@ -110,7 +122,10 @@ export default function TakeOffPurpleScreen() {
   }, []);
 
   return (
-    <section ref={rootRef} className="w-full h-[1200px] bg-[#0A1233] relative overflow-hidden">
+    <section
+      ref={rootRef}
+      className="w-full h-[1200px] bg-[#0A1233] relative overflow-hidden"
+    >
       <div className="relative w-full h-screen flex flex-col items-center justify-center text-center px-4">
         <div className="absolute inset-0 pointer-events-none">
           <Image
@@ -202,13 +217,18 @@ export default function TakeOffPurpleScreen() {
 
       <div className="fixed bottom-0 left-0 w-full h-full pointer-events-none">
         {["0.png.webp", "1.png.webp", "2.png.webp"].map((src, index) => (
-          <div key={index} className={`cloud${["One", "Two", "Three"][index]} w-full`}>
+          <div
+            key={index}
+            className={`cloud${["One", "Two", "Three"][index]} w-full`}
+          >
             <Image
               src={`/purple/${src}`}
               alt="cloud"
               width={1000}
               height={1000}
-              className={`w-full object-contain absolute bottom-0 opacity-${index % 2 === 0 ? "20" : "10"} z-${5 - index} will-change-transform`}
+              className={`w-full object-contain absolute bottom-0 opacity-${
+                index % 2 === 0 ? "20" : "10"
+              } z-${5 - index} will-change-transform`}
             />
           </div>
         ))}

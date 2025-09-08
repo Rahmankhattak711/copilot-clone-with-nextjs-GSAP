@@ -60,7 +60,7 @@ export default function Products() {
   }, [activeIndex]);
 
   useEffect(() => {
-    const handleScroll = (e:any) => {
+    const handleScroll = (e: any) => {
       if (isAnimating.current) return;
 
       if (e.deltaY > 0) {
@@ -85,12 +85,20 @@ export default function Products() {
   }, [panels.length]);
 
   return (
-    <div ref={containerRef} className="w-screen h-screen overflow-hidden relative">
-      {panels.map((panel, i) => (
-        <div key={i} className={`panel-${i} w-full h-full absolute top-0 left-0`}>
-          {panel}
-        </div>
-      ))}
-    </div>
+    <>
+      <div
+        ref={containerRef}
+        className="w-screen h-screen overflow-hidden relative"
+      >
+        {panels.map((panel, i) => (
+          <div
+            key={i}
+            className={`panel-${i} w-full h-full absolute top-0 left-0`}
+          >
+            {panel}
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
