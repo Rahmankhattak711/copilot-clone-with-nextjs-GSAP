@@ -64,7 +64,7 @@ export default function MainHeader() {
     <div className="mainH flex items-center justify-center relative">
       <div className="console w-full h-20 px-20 rounded-md flex py-8 items-center justify-between">
         {/* TAKE OFF */}
-        <Link href="/takeofforange">
+        <Link href="/mypage/takeofforange">
           <div className="scramble flex gap-1 uppercase text-base cursor-pointer">
             <div>
               <span>T</span>
@@ -81,7 +81,7 @@ export default function MainHeader() {
         </Link>
 
         {/* TOUCH DOWN */}
-        <Link href="/takeoffpurple">
+        <Link href="/mypage/takeoffpurple">
           <div className="scramble flex gap-1 uppercase text-base cursor-pointer">
             <div>
               <span>T</span>
@@ -100,7 +100,7 @@ export default function MainHeader() {
         </Link>
 
         {/* HIGH POINT */}
-        <Link href="/highpoint">
+        <Link href="/mypage/highpoint">
           <div className="scramble flex gap-1 uppercase text-base cursor-pointer">
             <div>
               <span>H</span>

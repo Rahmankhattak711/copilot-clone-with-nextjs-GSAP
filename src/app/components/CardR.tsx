@@ -28,7 +28,7 @@ export default function CardR({
       <div className="cardRInner"></div>
 
       <div
-        className={`cardRTop border-[1px] ${borderTop} ${borderRight} ${borderBottom} ${borderLeft}`}
+        className={`cardRTop border-[2px] ${borderTop} ${borderRight} ${borderBottom} ${borderLeft}`}
       >
         {title}
       </div>

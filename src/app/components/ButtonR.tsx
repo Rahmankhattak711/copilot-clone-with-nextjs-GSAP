@@ -1,6 +1,12 @@
 import React from "react";
-import './ButtonR.css';
+import "./ButtonR.css";
 
-export default function ButtonR({ children }: { children: React.ReactNode }) {
-  return <button className="btn top">{children}</button>;
+export default function ButtonR({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return <button className={`btn top ${className}`}>{children}</button>;
 }
