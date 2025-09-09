@@ -30,14 +30,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} h-screen relative w-full antialiased`}
       >
         <div className="absolute w-full text-center z-10000">
-          <Header />
+          {/* <Header /> */}
         </div>
-
-        {/* <div className="w-full flex items-center justify-center  fixed bottom-14 z-[100]">
-          <div className="w-screen ">
-            <MainHeader />
-          </div>
-        </div> */}
         {children}
       </body>
     </html>
