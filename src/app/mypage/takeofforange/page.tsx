@@ -8,6 +8,7 @@ import { useEffect, useRef } from "react";
 import CardL from "../../components/CardL";
 import CardR from "../../components/CardR";
 import Heading from "../../components/Heading";
+import MainHeader from "@/app/components/MainHeader";
 
 export default function TakeOrangeScreen() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -247,6 +248,11 @@ export default function TakeOrangeScreen() {
             />
           </div>
         ))}
+      </div>
+      <div className="w-full flex items-center justify-center  fixed bottom-14 z-[100]">
+        <div className="w-screen ">
+          <MainHeader bgColor="after:bg-[#F28C51] before:bg-[#F28C51]" />
+        </div>
       </div>
     </section>
   );

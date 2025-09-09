@@ -9,7 +9,7 @@ export const HeaderN: React.FC = () => {
       <Link
         data-next-page="leave-to-home"
         aria-label="Go to home"
-        href="/"
+        href="/mypage"
         className="absolute flex items-center gap-2 cursor-pointer z-[10000] top-6 left-10 text-white"
       >
         <FaLongArrowAltLeft /> Back Home

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import "./MainHeader.css";
 import Link from "next/link";
 
-export default function MainHeader() {
+export default function MainHeader({ bgColor }: { bgColor: string }) {
   useEffect(() => {
     const scrambles: NodeListOf<HTMLElement> =
       document.querySelectorAll(".scramble");
@@ -61,7 +61,9 @@ export default function MainHeader() {
   }, []);
 
   return (
-    <div className="mainH flex items-center justify-center relative">
+    <div
+      className={`mainH ${bgColor} flex items-center justify-center relative`}
+    >
       <div className="console w-full h-20 px-20 rounded-md flex py-8 items-center justify-between">
         {/* TAKE OFF */}
         <Link href="/mypage/takeofforange">
