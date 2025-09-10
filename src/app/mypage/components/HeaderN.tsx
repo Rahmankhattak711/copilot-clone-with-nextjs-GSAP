@@ -9,7 +9,7 @@ export const HeaderN: React.FC = () => {
       <Link
         data-next-page="leave-to-home"
         aria-label="Go to home"
-        href="/"
+        href="/mypage"
         className="absolute flex items-center gap-2 cursor-pointer z-[10000] top-6 left-10 text-white"
       >
         <FaLongArrowAltLeft /> Back Home
@@ -18,7 +18,7 @@ export const HeaderN: React.FC = () => {
         href="/"
         data-next-page="leave-to-home"
         aria-label="Go to home"
-        className="cursor-pointer" // Removed pe-none
+        className="cursor-pointer"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +26,6 @@ export const HeaderN: React.FC = () => {
           height="47.142"
           viewBox="0 0 212.367 47.142"
         >
-          {/* SVG paths remain unchanged */}
         </svg>
       </Link>
       <Link

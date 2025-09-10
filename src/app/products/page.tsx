@@ -4,6 +4,7 @@ import TakeOff from "../pages/TakeOff";
 import TakeOrange from "../pages/TakeOrange";
 import TakeOffPurple from "../pages/TakeOffPurple";
 import gsap from "gsap";
+import MainHeader from "../components/MainHeader";
 
 export default function Products() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -98,6 +99,11 @@ export default function Products() {
             {panel}
           </div>
         ))}
+      </div>
+      <div className="w-full flex items-center justify-center  fixed bottom-14 z-[100]">
+        <div className="w-screen ">
+          <MainHeader bgColor="after:bg-[#ffff] before:bg-[#ffff]" />
+        </div>
       </div>
     </>
   );

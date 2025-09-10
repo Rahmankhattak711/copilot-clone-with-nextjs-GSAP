@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import CardL from "../../components/CardL";
 import CardR from "../../components/CardR";
 import Heading from "../../components/Heading";
+import MainHeader from "@/app/components/MainHeader";
 
 const useHighPointAnimations = () => {
   useEffect(() => {
@@ -294,6 +295,12 @@ export default function HighPointScreen() {
             height={1000}
             className="w-full z-2 object-contain absolute bottom-0 opacity-10 left-0"
           />
+        </div>
+      </div>
+
+       <div className="w-full flex items-center justify-center  fixed bottom-14 z-[100]">
+        <div className="w-screen ">
+          <MainHeader bgColor="after:bg-[#A7DB8D] before:bg-[#A7DB8D]" />
         </div>
       </div>
     </section>

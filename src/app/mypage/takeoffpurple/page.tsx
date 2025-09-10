@@ -12,6 +12,7 @@ import {
   animateFloor,
   handleMouseMove,
 } from "../../utils/animate";
+import MainHeader from "@/app/components/MainHeader";
 
 export default function TakeOffPurpleScreen() {
   const rootRef = useRef<HTMLElement>(null);
@@ -232,6 +233,11 @@ export default function TakeOffPurpleScreen() {
             />
           </div>
         ))}
+      </div>
+      <div className="w-full flex items-center justify-center  fixed bottom-14 z-[100]">
+        <div className="w-screen ">
+          <MainHeader bgColor="after:bg-[#83EFFF] before:bg-[#83EFFF]" />
+        </div>
       </div>
     </section>
   );
